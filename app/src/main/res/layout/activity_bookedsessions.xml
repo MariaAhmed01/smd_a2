@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".bookedsessions"
+    android:background="#DEF8F8"
+    >
+
+
+    <ImageView
+        android:id="@+id/circles"
+        android:layout_width="150dp"
+        android:layout_height="145dp"
+        android:src="@drawable/circles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circles">
+
+        <ImageView
+            android:id="@+id/backarrow"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:src="@drawable/arrow"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:onClick="back"
+            />
+
+        <TextView
+            android:id="@+id/tv_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Booked Sessions"
+            app:layout_constraintTop_toBottomOf="@+id/backarrow"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="26sp"
+            android:textColor="#157177"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_1"
+        >
+
+        <ImageView
+            android:id="@+id/iv_box1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/pic1"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:id="@+id/iv_text1"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:src="@drawable/desc1"
+            android:layout_marginTop="40dp"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_2"
+        >
+
+        <ImageView
+            android:id="@+id/iv_box2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/pic2"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"/>
+
+        <ImageView
+            android:id="@+id/iv_text2"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:src="@drawable/desc2"
+            android:layout_marginTop="40dp"
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
