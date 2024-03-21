@@ -4,25 +4,60 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import kotlin.random.Random
+
 
 class Signup : AppCompatActivity() {
+
+    private lateinit var mAuth: FirebaseAuth
+
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
+        mAuth = FirebaseAuth.getInstance()
+
+        val name = findViewById<EditText>(R.id.name)
+        val email = findViewById<EditText>(R.id.email)
+        val contact = findViewById<EditText>(R.id.contactnumber)
+        var  pass = findViewById<EditText>(R.id.password)
         val signupbutton = findViewById<Button>(R.id.signupbutton)
         val loginbutton = findViewById<TextView>(R.id.login_button)
 
         signupbutton.setOnClickListener {
-            onsignupclicked()
+
+            var emailTxt = email.text.toString()
+            var passTxt = pass.text.toString()
+            //if password field is empty
+            if(emailTxt.isEmpty()) {
+                email.error= "Please enter email"
+                email.requestFocus()
+                return@setOnClickListener
+            }
+            if(passTxt.isEmpty()) {
+                pass.error= "Please enter password"
+                pass.requestFocus()
+                return@setOnClickListener
+            }
+
+            onsignupclicked(emailTxt, passTxt)
         }
 
         loginbutton.setOnClickListener {
@@ -71,10 +106,27 @@ class Signup : AppCompatActivity() {
         startActivity(loginintent)
     }
 
-    fun onsignupclicked(){
+    fun onsignupclicked(email:String,pass:String){
 
-        val signupintent = Intent(this, verifyphonenumscreen::class.java)
-        startActivity(signupintent)
+        mAuth.createUserWithEmailAndPassword(email, pass)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+
+                    Log.d("TAG", "createUserWithEmail:success")
+                    val user = mAuth.currentUser
+
+                    val signupintent = Intent(this, verifyphonenumscreen::class.java)
+                    startActivity(signupintent)
+
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("TAG", "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(this, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
     }
 
 }
