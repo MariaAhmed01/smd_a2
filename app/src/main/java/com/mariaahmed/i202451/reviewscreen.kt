@@ -45,12 +45,9 @@ class reviewscreen : AppCompatActivity() {
         db.collection("reviews")
             .add(reviewData)
             .addOnSuccessListener { documentReference ->
-                // Handle successful upload
-                // For example, show a toast or navigate to another screen
+
             }
             .addOnFailureListener { e ->
-                // Handle failure
-                // For example, show an error message
             }
     }
 }

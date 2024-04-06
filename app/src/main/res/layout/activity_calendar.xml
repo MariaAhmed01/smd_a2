@@ -221,16 +221,15 @@
             />
 
         <TextView
-            android:layout_width="120dp"
+            android:layout_width="123dp"
             android:layout_height="50dp"
-            android:text="11:00am"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
+            android:background="@drawable/buttonstyle"
+            android:paddingLeft="25dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="25dp"
-            android:background="@drawable/buttonstyle"
-            />
+            android:text="11:00am"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
 
         <View
             android:layout_width="0dp"
