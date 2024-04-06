@@ -87,10 +87,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="4dp"
         >
 
         <ImageView
+            android:id="@+id/upload_photo"
             android:layout_width="200dp"
             android:layout_height="150dp"
             android:src="@drawable/addphoto"
@@ -122,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="2dp"
         android:orientation="vertical"
         >
 
@@ -134,7 +135,7 @@
             android:textSize="16sp"
             android:textColor="@color/white"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="8dp"
+
             />
         <EditText
             android:id="@+id/name"
@@ -167,6 +168,30 @@
             android:layout_marginEnd="18dp"
             android:layout_marginTop="3dp"
             android:text="Enter description"
+            android:textColor="#808080"
+            android:textSize="14sp"
+            android:background = "@drawable/rounded_corners"
+            android:padding="5dp"                />
+
+
+        <TextView
+            android:id="@+id/pricetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            />
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginTop="3dp"
+            android:text="Enter price"
             android:textColor="#808080"
             android:textSize="14sp"
             android:background = "@drawable/rounded_corners"

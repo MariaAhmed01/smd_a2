@@ -20,12 +20,14 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.auth.User
 import kotlin.random.Random
 
 
 class Signup : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var database: DatabaseReference
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +35,8 @@ class Signup : AppCompatActivity() {
         setContentView(R.layout.activity_signup)
 
         mAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
 
         val name = findViewById<EditText>(R.id.name)
         val email = findViewById<EditText>(R.id.email)

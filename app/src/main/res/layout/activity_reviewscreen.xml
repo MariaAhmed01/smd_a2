@@ -104,14 +104,18 @@
             />
     </LinearLayout>
 
-    <ImageView
+    <EditText
         android:id="@+id/reviewbox"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:src="@drawable/reviewbox"
+        android:src="@drawable/edittextstyle"
         android:layout_margin="30dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
+        android:text="enter your review..."
+        android:textSize="16dp"
+        android:gravity="start"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_nested"
